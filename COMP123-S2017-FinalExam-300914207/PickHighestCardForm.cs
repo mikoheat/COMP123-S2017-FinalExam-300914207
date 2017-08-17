@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
- * Name:
- * Date:
- * StudentID:
- * Description:
- * Version:
- */
+* Name: Taeho Kim
+* Date: August 17, 2017
+* StudentID: 300914207
+* Description: PickHighestCard Demo Project
+* Version: 0.1 - Create ScoreBoard class and implement fields, properties, and methods
+*/
 
 namespace COMP123_S2017_FinalExam_300914207
 {
@@ -397,5 +397,90 @@ namespace COMP123_S2017_FinalExam_300914207
         {
             Application.Exit();
         }
-    }
+        /// <summary>
+        /// 
+        /// </summary>
+        class ScoreBoard
+        {
+            // Fields
+
+            private TextBox _finalScoreTextBox;
+            private int _score;
+            private TextBox _scoreTextBox;
+            private int _time;
+            private TextBox _timeTextBox;
+
+            // Properties
+
+            public TextBox FinalScoreTextBox
+            {
+                get
+                {
+                    return this._finalScoreTextBox;
+                }
+                set
+                {
+                    this._finalScoreTextBox = value;
+                }
+            }
+
+            public int Score
+            {
+                get
+                {
+                    return this._score;
+                }
+                set
+                {
+                    this._score = value;
+                }
+            }
+
+            public TextBox ScoreTextBox
+            {
+                get
+                {
+                    return this._scoreTextBox;
+                }
+                set
+                {
+                    this._scoreTextBox = value;
+                }
+            }
+
+            public int Time
+            {
+                get
+                {
+                    return this._time;
+                }
+                set
+                {
+                    this._time = value;
+                }
+            }
+
+            public TextBox TimeTextBox
+            {
+                get
+                {
+                    return this._timeTextBox;
+                }
+                set
+                {
+                    this._timeTextBox = value;
+                }
+            }
+
+            public ScoreBoard(TextBox scoreTextBox, TextBox timeTextBox, TextBox finalScoreTextBox)
+            {
+
+            }
+
+            public void UpdateTime()
+            {
+                Time = int.Parse(TimeTextBox.Text) - 1;
+                TimeTextBox.Text = Time.ToString();
+            }
+        }
 }
