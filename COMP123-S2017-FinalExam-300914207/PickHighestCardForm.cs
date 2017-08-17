@@ -15,7 +15,7 @@ using System.Windows.Forms;
 * Date: August 17, 2017
 * StudentID: 300914207
 * Description: PickHighestCard Demo Project
-* Version: 0.1 - Create ScoreBoard class and implement fields, properties, and methods
+* Version: 0.1 - modified PickHighestCardForm (ScoreBoard, _reset(), PickHighestCardForm_Load, _showUserMessage, CountDownTimer_Tick)
 */
 
 namespace COMP123_S2017_FinalExam_300914207
@@ -29,6 +29,7 @@ namespace COMP123_S2017_FinalExam_300914207
         Deck _deck;
         Hand _hand;
         int _maximumPoints;
+        private TextBox _scoreboard;
 
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         public List<PictureBox> DealtCardPictureBoxList
@@ -191,6 +192,8 @@ namespace COMP123_S2017_FinalExam_300914207
         /// </summary>
         private void _reset()
         {
+            ScoreBoard.Score = 0;
+            ScoreBoard.Time = 30;
             this._hideCards();
             this._resetDeck();
             CountDownTimer.Enabled = true;
@@ -222,6 +225,7 @@ namespace COMP123_S2017_FinalExam_300914207
         private void PickHighestCardForm_Load(object sender, EventArgs e)
         {
             // Initialize ScoreBoard HERE
+            ScoreBoard board = new ScoreBoard(ScoreTextBox, TimeTextBox, FinalScoreTextBox);
 
             // Initialize the App Sounds
             this._buildDealtCardPictureBoxList();
@@ -272,7 +276,7 @@ namespace COMP123_S2017_FinalExam_300914207
                 this.CurrentClickedCard.BackColor = Color.Green;
                 UserMessageTextBox.Text = "You Got It!";
 
-                //Uncomment this --> ScoreBoard.Score += this.MaximumPoints;
+                ScoreBoard.Score += this.MaximumPoints;
 
                 DealButton.Enabled = true;
             }
@@ -358,7 +362,7 @@ namespace COMP123_S2017_FinalExam_300914207
         /// <param name="e"></param>
         private void CountDownTimer_Tick(object sender, EventArgs e)
         {
-            /* Uncomment THIS
+            
             ScoreBoard.UpdateTime();
             if (ScoreBoard.Time == 0)
             {
@@ -367,7 +371,7 @@ namespace COMP123_S2017_FinalExam_300914207
                 this._disableDealtCards();
                 this._showFinalScore();
             }
-            */
+            
         }
 
         /// <summary>
@@ -474,7 +478,7 @@ namespace COMP123_S2017_FinalExam_300914207
 
             public ScoreBoard(TextBox scoreTextBox, TextBox timeTextBox, TextBox finalScoreTextBox)
             {
-
+                ScoreBoard = _scoreboard;
             }
 
             public void UpdateTime()
@@ -483,4 +487,5 @@ namespace COMP123_S2017_FinalExam_300914207
                 TimeTextBox.Text = Time.ToString();
             }
         }
+    }
 }
