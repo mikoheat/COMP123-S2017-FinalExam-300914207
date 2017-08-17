@@ -22,6 +22,7 @@ namespace COMP123_S2017_FinalExam_300914207
 {
     public partial class PickHighestCardForm : Form
     {
+        
         // PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         List<PictureBox> _dealtCardPictureBoxList;
         int _currentDealtCardIndex;
@@ -32,6 +33,19 @@ namespace COMP123_S2017_FinalExam_300914207
         private TextBox _scoreboard;
 
         // PUBLIC PROPERTIES +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        public TextBox ScoreBoard
+        {
+            get
+            {
+                return this._scoreboard;
+            }
+            set
+            {
+                this._scoreboard = value;
+            }
+        }
+
         public List<PictureBox> DealtCardPictureBoxList
         {
             get
@@ -406,6 +420,7 @@ namespace COMP123_S2017_FinalExam_300914207
         /// </summary>
         class ScoreBoard
         {
+
             // Fields
 
             private TextBox _finalScoreTextBox;
@@ -478,7 +493,7 @@ namespace COMP123_S2017_FinalExam_300914207
 
             public ScoreBoard(TextBox scoreTextBox, TextBox timeTextBox, TextBox finalScoreTextBox)
             {
-                ScoreBoard = _scoreboard;
+
             }
 
             public void UpdateTime()
