@@ -13,7 +13,7 @@ using System.Windows.Forms;
 * Date: August 17, 2017
 * StudentID: 300914207
 * Description: PickHighestCard Demo Project
-* Version: 0.1 - Create a SplashForm and implement SplashFormTimer_Tick event handler.
+* Version: 0.1 - Add label on design.
 */
 
 namespace COMP123_S2017_FinalExam_300914207
