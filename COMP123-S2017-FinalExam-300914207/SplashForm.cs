@@ -20,6 +20,15 @@ namespace COMP123_S2017_FinalExam_300914207
 {
     public partial class SplashForm : Form
     {
+        // PUBLIC PROPERTIES
+        public PickHighestCardForm cardpick
+        {
+            get
+            {
+                return Program.pickcard;
+            }
+        }
+
         public SplashForm()
         {
             InitializeComponent();
@@ -29,7 +38,7 @@ namespace COMP123_S2017_FinalExam_300914207
         {
             
 
-            this..Show();
+            this.cardpick.Show();
 
             this.Hide();
 
